@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DellxCell's Kronos Mods</title>
+<meta name="description" content="Free mods for Black Ops 7 Zombies, made for Kronos: Veytharion's Gauntlet, Blackwater Lake and the Cursed Survival Rarity Outline Fix.">
+<meta property="og:title" content="DellxCell's Kronos Mods">
+<meta property="og:description" content="Free mods for Black Ops 7 Zombies, made for Kronos: a boss arena, a custom Survival map and a Cursed Survival fix.">
+<meta property="og:image" content="https://raw.githubusercontent.com/DellxCell/Veytharion-Gauntlet/main/Screenshots/arena.jpg">
+<meta property="og:url" content="https://dellxcell.github.io/">
+<meta name="theme-color" content="#ff7a2f">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the Kronos Plus page's single dark column: a title header, one card per mod, then shared install steps. No logos. */
+:root {
+  color-scheme: dark;
+  --bg: #0d0f13;
+  --panel: #171a21;
+  --line: #262b35;
+  --text: #e9ecf1;
+  --muted: #9aa3b2;
+  --accent: #ff7a2f;
+  --accent-hi: #ffb347;
+  --info: #6aa8ff;
+  --ok: #3ccf7f;
+  --display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", Consolas, ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 48px 40px;
+}
+main { max-width: 860px; margin: 0 auto; display: grid; gap: 36px; }
+h1 { font: 700 44px/1.05 var(--display); margin: 0; letter-spacing: .5px; text-wrap: balance; }
+h1 .hl { color: var(--accent); }
+.tag { margin: 10px 0 0; color: var(--muted); max-width: 62ch; }
+.promise { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.promise span { font: 500 12px var(--mono); padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.promise span::before { content: "\2713  "; color: var(--ok); }
+.mods { display: grid; gap: 24px; }
+.mod {
+  --c: 255, 122, 47;
+  border: 1px solid rgba(var(--c), .4);
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(var(--c), .10), rgba(var(--c), .03) 60%), var(--panel);
+}
+.mod.gauntlet { --c: 168, 85, 247; --hi: #d8b4fe; }
+.mod.lake { --c: 6, 182, 212; --hi: #a5f3fc; }
+.mod.rarity { --c: 139, 92, 246; --hi: #93c5fd; }
+.mod > img { width: 100%; aspect-ratio: 2.4 / 1; object-fit: cover; display: block; border-bottom: 1px solid rgba(var(--c), .3); }
+.rarity-strip { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid rgba(var(--c), .3); }
+.rarity-strip span { font: 600 11px var(--mono); letter-spacing: 1px; text-transform: uppercase; text-align: center; padding: 26px 4px; color: #0b0710; }
+.body { padding: 20px 22px 22px; display: grid; gap: 12px; }
+h2 { font: 700 26px/1.1 var(--display); margin: 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+h2 .ver { font: 600 13px var(--mono); color: var(--hi); border: 1px solid rgba(var(--c), .45); background: rgba(var(--c), .1); padding: 2px 9px; border-radius: 999px; }
+.kind { font: 600 12px var(--display); text-transform: uppercase; letter-spacing: 2px; color: var(--hi); margin: 0; }
+.body p { margin: 0; color: var(--muted); }
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 8px 24px; }
+ul.points li { padding-left: 12px; border-left: 2px solid rgba(var(--c), .6); color: var(--muted); font-size: 14px; }
+ul.points b { color: var(--text); font-weight: 600; }
+.cta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; margin-top: 4px; }
+a.get { font: 600 14px var(--body); color: #0b0710; text-decoration: none; background: linear-gradient(135deg, var(--hi), rgb(var(--c))); border-radius: 10px; padding: 9px 15px; }
+a.src { font: 500 14px var(--body); color: var(--text); text-decoration: none; border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; }
+a.src:hover { border-color: rgb(var(--c)); }
+a:focus-visible { outline: 2px solid var(--info); outline-offset: 2px; }
+.note { color: var(--muted); font-size: 13px; }
+.start { display: grid; gap: 10px; }
+.start h3 { font: 600 13px var(--display); text-transform: uppercase; letter-spacing: 2px; color: var(--accent-hi); margin: 0; }
+.start ol { margin: 0; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; }
+.start b { color: var(--text); font-weight: 600; }
+code { font: 13px var(--mono); color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; overflow-wrap: anywhere; }
+footer { border-top: 1px solid var(--line); padding-top: 18px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+footer a { color: var(--muted); }
+footer a:hover { color: var(--text); }
+@media (max-width: 560px) {
+  body { padding-block: 28px 32px; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 22px; }
+  .rarity-strip span { font-size: 9px; letter-spacing: 0; padding: 18px 2px; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>DellxCell's <span class="hl">Kronos Mods</span></h1>
+    <p class="tag">Free mods for Black Ops 7 Zombies, made for Kronos, the offline BO7 Zombies mod. A boss arena, a custom Survival map and a fix for Cursed Survival.</p>
+    <div class="promise"><span>Free</span><span>No game files replaced</span><span>Remove by deleting one folder</span><span>Source on GitHub</span></div>
+  </header>
+
+  <div class="mods">
+    <article class="mod gauntlet">
+      <img src="https://raw.githubusercontent.com/DellxCell/Veytharion-Gauntlet/main/Screenshots/arena.jpg" alt="The boss arena of Rex Infernus">
+      <div class="body">
+        <p class="kind">Boss arena · Survival</p>
+        <h2>Veytharion's Gauntlet <span class="ver">1.2.1</span></h2>
+        <p>Drop into the boss arena of Rex Infernus and survive. Jump to any boss round from the pedestals, beat each boss for an upgrade that lasts the match, and take on all four at round 999.</p>
+        <ul class="points">
+          <li><b>6 boss rounds</b>: Z-Rex, the Guardian, Caltheris and the Warden</li>
+          <li><b>Rewards</b>: Golden Armor, Ultra rarity, Pack-a-Punch IV</li>
+          <li><b>5,000 salvage</b> for every boss beaten</li>
+          <li><b>Mystery Box</b> with the Warden Blight and three more wonder weapons</li>
+        </ul>
+        <div class="cta">
+          <a class="get" href="https://github.com/DellxCell/Veytharion-Gauntlet/releases/latest">Download</a>
+          <a class="src" href="https://dellxcell.github.io/Veytharion-Gauntlet/">More info</a>
+          <a class="src" href="https://github.com/DellxCell/Veytharion-Gauntlet">Source code</a>
+          <span class="note">Zombies &gt; Survival · solo or a squad of 4</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="mod lake">
+      <img src="https://raw.githubusercontent.com/DellxCell/Blackwater-Lake/main/Screenshots/pyramid.png" alt="The pyramid floating over Blackwater Lake">
+      <div class="body">
+        <p class="kind">Custom Survival map</p>
+        <h2>Blackwater Lake <span class="ver">1.0</span></h2>
+        <p>The first ever Custom Survival map for Black Ops 7 Zombies. Survive at the lake, cabin and cliffs of Ashes of the Damned, in Survival or Cursed Survival.</p>
+        <ul class="points">
+          <li><b>Pack-a-Punch</b> on the cabin deck, <b>Der Wunderfizz</b> inside</li>
+          <li><b>Rampage Inducer</b> and <b>Exfil</b></li>
+          <li><b>T.E.D.D. Tasks</b> in Cursed Survival</li>
+          <li><b>Mister Peeks Mayhem</b>, Restore Power and Klaus</li>
+        </ul>
+        <div class="cta">
+          <a class="get" href="https://github.com/DellxCell/Blackwater-Lake/releases/latest">Download</a>
+          <a class="src" href="https://dellxcell.github.io/Blackwater-Lake/">More info</a>
+          <a class="src" href="https://github.com/DellxCell/Blackwater-Lake">Source code</a>
+          <span class="note">Survival and Cursed Survival · solo or a squad of 4</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="mod rarity">
+      <div class="rarity-strip" aria-hidden="true">
+        <span style="background:#9ca3af">Common</span><span style="background:#4ade80">Uncommon</span><span style="background:#60a5fa">Rare</span><span style="background:#c084fc">Epic</span><span style="background:#fb923c">Legendary</span>
+      </div>
+      <div class="body">
+        <p class="kind">Fix · Cursed Survival</p>
+        <h2>Cursed Survival Rarity Outline Fix <span class="ver">1.0</span></h2>
+        <p>In Cursed Survival every dropped item shows a grey outline, however rare it is. This brings back the normal rarity colours, the same as in regular Survival.</p>
+        <ul class="points">
+          <li><b>Cursed Survival only</b>: other modes are untouched</li>
+          <li><b>Any map and any relic</b>, Mister Peeks Mayhem too</li>
+        </ul>
+        <div class="cta">
+          <a class="get" href="https://github.com/DellxCell/Cursed-Survival-Rarity-Outline-Fix/releases/latest">Download</a>
+          <a class="src" href="https://dellxcell.github.io/Cursed-Survival-Rarity-Outline-Fix/">More info</a>
+          <a class="src" href="https://github.com/DellxCell/Cursed-Survival-Rarity-Outline-Fix">Source code</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <section class="start">
+    <h3>Install any of them</h3>
+    <ol>
+      <li>Set up <b>Kronos</b> and run its launcher at least once.</li>
+      <li>Download the mod's zip, then close <b>Black Ops 7</b> and <b>KronosLauncher</b>.</li>
+      <li>Extract the zip into <code>C:\Kronos\cod25\kronos\mods</code>. Each mod is one folder there.</li>
+      <li>Launch the game through Kronos as usual. To remove a mod, delete its folder.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Black Ops 7 + Kronos</span>
+    <span>Made by <b>DellxCell</b> (The Hamster)</span>
+    <span><a href="https://github.com/DellxCell">GitHub</a></span>
+    <span>Fan-made. Not affiliated with the Kronos team or Activision.</span>
+  </footer>
+</main>
+</body>
+</html>
